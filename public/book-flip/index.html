@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Magazine</title>
+</head>
+
+<body>
+  <div class="flipbook">
+    <div class="hard">For periperi <small>~ by chatGPT</small></div>
+    <div class="hard"></div>
+    <div>
+      <small>Okay, so. On the occasion of rose day, </small>
+      <small>Let me introduce those "so" called roses </small>
+      <small>to the real one! </small>
+      <small> </small>
+      <small>(Dont get jalous of her beauty, okay?)</small>
+    </div>
+    <div>
+      <img src="images/img-1.png" alt="" />
+      <small> Bina smile ke bhi cute kaise lagte hai? Ese 👆  </small>
+      <small> You're the real rose btw 🌹 </small>
+    </div>
+    <div>
+      <img src="images/img-2.png" alt="" />
+      <small> And with smile toh... >>>>>> </small>
+      <small> ~Khair </small>
+    </div>
+    <div>
+      <video width="300" height="300" autoplay loop>
+        <source src="images/vid-2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <small> And on red saareee >>>>>> </small>
+      <small> Awwwww 🫶 </small>
+    </div>
+    <div>
+      <video width="300" height="300" autoplay loop>
+        <source src="images/vid-1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <small> And with glassesss tohh, Hyee>>>> </small>
+      <small> Protecting sun from your glaze? hm? </small>
+    </div>
+    <div>
+      <img src="images/img-3.png" alt="" />
+      <small> And aise 😜 toh >>>> </small>
+      <small> Bahaha, cute cute </small>
+    </div>
+    <div class="hard"></div>
+    <div class="hard">Thank You <small>~ PeriPeri</small></div>
+  </div>
+
+  <script src="jquery.js"></script>
+  <script src="turn.js"></script>
+  <script>
+    var flipbook = $(".flipbook").turn();
+
+    // Cooldown to prevent rapid double-flips (1 second)
+    var canFlip = true;
+    var flipCooldown = 1000; // milliseconds
+
+    function startCooldown() {
+      canFlip = false;
+      setTimeout(function() {
+        canFlip = true;
+      }, flipCooldown);
+    }
+
+    // Handle page clicks for flipping (delegated)
+    $(".flipbook").on("click", "> div, .page", function(e) {
+      if (!canFlip) return;
+
+      var $page = $(this);
+      var clickX = e.pageX - $page.offset().left;
+      var pageWidth = $page.width() || $(".flipbook").width() / 2;
+
+      if (clickX < pageWidth / 2) {
+        flipbook.turn("previous");
+      } else {
+        flipbook.turn("next");
+      }
+
+      // start cooldown immediately after initiating a flip
+      startCooldown();
+    });
+
+    // Prevent flips while the plugin is processing a turn
+    flipbook.on("turning", function() {
+      canFlip = false;
+    });
+
+    // Auto-play video when page turns and re-enable flipping after cooldown
+    flipbook.on("turned", function() {
+      // Stop all videos
+      $(".flipbook video").each(function() {
+        this.pause();
+      });
+
+      // Play only visible videos
+      $(".flipbook video").filter(function() {
+        return $(this).is(":visible");
+      }).each(function() {
+        this.play();
+      });
+
+      // Ensure flipping is re-enabled after cooldown
+      setTimeout(function() {
+        canFlip = true;
+      }, flipCooldown);
+    });
+  </script>
+</body>
+
+</html>
