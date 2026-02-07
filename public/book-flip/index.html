@@ -51,7 +51,7 @@
       <small> Bahaha, cute cute </small>
     </div>
     <div class="hard"></div>
-    <div class="hard">Thank You <small>~ PeriPeri</small></div>
+    <div class="hard">Thank You Dear <small>~ For all the smiles</small></div>
   </div>
 
   <script src="jquery.js"></script>
@@ -94,7 +94,7 @@
     });
 
     // Auto-play video when page turns and re-enable flipping after cooldown
-    flipbook.on("turned", function() {
+    flipbook.on("turned", function(e, page) {
       // Stop all videos
       $(".flipbook video").each(function() {
         this.pause();
@@ -111,6 +111,22 @@
       setTimeout(function() {
         canFlip = true;
       }, flipCooldown);
+      // detect last page and notify parent / reveal parent behind last page
+      try {
+        var total = flipbook.turn("pages");
+        if (page === total) {
+          // add class to last page to make it reveal-transparent
+          $('.flipbook > div').eq(total - 1).addClass('reveal-parent');
+          if (window.parent && window.parent !== window) {
+            // use wildcard origin so parent receives the message regardless of dev server port/origin
+            window.parent.postMessage({ type: 'flipbookEnded' }, '*');
+          }
+        } else {
+          $('.flipbook > div').removeClass('reveal-parent');
+        }
+      } catch (err) {
+        // ignore
+      }
     });
   </script>
 </body>

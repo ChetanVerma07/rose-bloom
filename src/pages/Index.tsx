@@ -99,7 +99,7 @@ const Index = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 1 }}
               >
-                Happy Rose Day
+                A Very Happy Rose Day
               </motion.h1>
               <HeroRose onBloom={handleBloom} />
             </motion.div>
@@ -121,7 +121,7 @@ const Index = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 5, duration: 1 }}
               >
-                One last thing...
+                Thankyou so much ♥️
               </motion.p>
               <motion.div
                 initial={{ opacity: 0 }}
@@ -160,7 +160,7 @@ const Index = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
               >
-                But the real rose…
+                8 billion peoples in the world,
               </motion.p>
               <motion.p
                 className="font-cursive text-4xl sm:text-5xl md:text-6xl text-foreground text-glow text-center"
@@ -168,7 +168,7 @@ const Index = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.5, duration: 1.2 }}
               >
-                is you 🌹
+                And i got...
               </motion.p>
               <MemoryCard revealDelay={3} />
             </motion.div>

@@ -56,3 +56,12 @@ body {
     margin-bottom: 10px;
 }
 
+/* When the flipbook reaches its last page, make that page slightly transparent
+   so parent content behind the iframe becomes visible. Smooth transition applied. */
+.reveal-parent {
+    background: transparent !important;
+    border: none !important;
+    transition: background 0.6s ease, opacity 0.6s ease;
+    opacity: 0.02;
+}
+

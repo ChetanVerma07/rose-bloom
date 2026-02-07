@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import memoryPhoto from "@/assets/memory-photo.jpg";
+import memoryVideo from "@/assets/memory-photo.mp4";
 
 interface MemoryCardProps {
   revealDelay?: number;
@@ -34,11 +34,12 @@ const MemoryCard = ({ revealDelay = 0 }: MemoryCardProps) => {
                 filter: "blur(10px)",
               }}
             />
-            <img
-              src={memoryPhoto}
-              alt="A special memory"
+            <video
+              src={memoryVideo}
+              autoPlay
+              loop
+              muted
               className="relative w-56 h-56 sm:w-64 sm:h-64 object-cover rounded-2xl shadow-xl border-4 border-card"
-              draggable={false}
             />
           </div>
           <p className="font-serif text-muted-foreground italic text-center text-sm sm:text-base max-w-xs">

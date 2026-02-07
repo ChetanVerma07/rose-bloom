@@ -22,7 +22,7 @@ const EnvelopeReveal = ({ onContinue }: EnvelopeRevealProps) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.6 }}
       >
-        A Letter for You 💌
+        So, i've something to tell You 🥰
       </motion.p>
 
       {!opened && (
@@ -83,7 +83,7 @@ const EnvelopeReveal = ({ onContinue }: EnvelopeRevealProps) => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
               >
-                My Dear
+                Dear PeriPeri
               </motion.h3>
               <motion.p
                 className="font-serif text-xs sm:text-sm text-muted-foreground leading-relaxed"
@@ -91,8 +91,8 @@ const EnvelopeReveal = ({ onContinue }: EnvelopeRevealProps) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.5 }}
               >
-                Happy Rose Day! Just like this rose, you bring color and fragrance to my life.
-                Every petal represents a smile you've given me. You make my world brighter just by being in it. 🌹
+                Happy Rose Day! Just like the roses, you bring lots of color and fragrance to my life.
+                Every single petal falling in background represents a smile you've gave me. You make me the happiest 🌹
               </motion.p>
             </motion.div>
           )}
@@ -110,7 +110,7 @@ const EnvelopeReveal = ({ onContinue }: EnvelopeRevealProps) => {
             transition={{ delay: 1, duration: 0.5 }}
             whileHover={{ x: 5 }}
           >
-            One last thing →
+            So i want to wish you →
           </motion.button>
         )}
       </AnimatePresence>

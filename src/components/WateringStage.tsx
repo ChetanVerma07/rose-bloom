@@ -9,10 +9,9 @@ interface WateringStageProps {
 const messages = [
   "Look what i brought for you, Let's plant this seed! 🌱",
   "Watering it will help it grow! 💧",
-  "It's growing… keep going!",
   "A little more efforts… <3",
   "Almost there… !!",
-  "Aww, it's blooming! 🌹",
+  "Aww, you did it! it's blooming! 🌹",
 ];
 
 /* ---- Enhanced SVG Rose Bud ---- */
